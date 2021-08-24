@@ -20,7 +20,7 @@ var question_bank = [
     "Which of the following is the correct official website of HKUST?"
 ]
 
-var answer_bank = [
+var choice_bank = [
     ["1" , "2" , "3" , "4"],
     ["1" , "2" , "3" , "4"],
     ["1" , "2" , "3" , "4"],
@@ -33,22 +33,60 @@ var answer_bank = [
     ["1" , "2" , "3" , "4"],
 ]
 
+var answer_bank = [
+    "1" , "3" , "2" , "4","1" , "3" , "2" , "4","1" , "3"
+]
+
 var n = 0;
+var score = 0;
+var answered = false;
+
 window.onload = function(){
     question.innerHTML = question_bank[0]
-    choice1.innerHTML = answer_bank[0][0]
+    choice1.innerHTML = choice_bank[0][0]
+    choice2.innerHTML = choice_bank[0][1]
+    choice3.innerHTML = choice_bank[0][2]
+    choice4.innerHTML = choice_bank[0][3]
 }
 
-next.addEventListener("click", nextquestion);
+next.addEventListener("click", function(){nextquestion();});
+choice1.addEventListener("click", function(){reply(choice1.id);});
+choice2.addEventListener("click", function(){reply(choice2.id);})
+choice3.addEventListener("click", function(){reply(choice3.id);})
+choice4.addEventListener("click", function(){reply(choice4.id);})
 
 function nextquestion(){
-    n = n+1;
-    if(n == 10){
-        window.location.href = "result.html"
-    }else{
-        progress.setAttribute("style", "width:" + String(n+1) + "0%")
-        text.innerHTML = "Question" + String(n+1)
-        question.innerHTML = question_bank[n]
-        choice1.innerHTML = answer_bank[n][0]
+    if(answered){
+        n = n+1;
+        if(n == 10){
+            localStorage.setItem("score" , score)
+            window.location.href = "result.html"
+        }else{
+            progress.setAttribute("style", "width:" + String(n+1) + "0%")
+            text.innerHTML = "Question" + String(n+1)
+            question.innerHTML = question_bank[n]
+            choice1.innerHTML = choice_bank[n][0]
+            choice2.innerHTML = choice_bank[n][1]
+            choice3.innerHTML = choice_bank[n][2]
+            choice4.innerHTML = choice_bank[n][3]
+            choice1.style.background = "#F5F3F3"
+            choice2.style.background = "#F5F3F3"
+            choice3.style.background = "#F5F3F3"
+            choice4.style.background = "#F5F3F3"
+            answered = false;
+        }
+    }
+}
+
+function reply(choice){
+    if(!answered){
+        if(choice == "choice"+answer_bank[n]){
+            score = score + 1;
+            document.getElementById("choice" + String(answer_bank[n])).style.background = "#5ECA7C"
+        }else{
+            document.getElementById("choice" + String(answer_bank[n])).style.background = "#5ECA7C"
+            document.getElementById(choice).style.background = "#FF6666"
+        }
+        answered = true
     }
 }
