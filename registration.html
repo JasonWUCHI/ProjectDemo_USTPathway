@@ -4,98 +4,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <style>
+
+    body {
+        font-family: Poppins;
+    }
+
     #first {
-        position: absolute;
-        width: 174px;
-        height: 142px;
-        top: 88px;
-        left: 73px;
-        background: url(image.png);
+        height: 23vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 18vh;
     }
 
     #text {
-        position: absolute;
-        width: 226px;
-        height: 38px;
-        left: 44px;
-        top: 251px;
-
-        font-family: Poppins;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 21px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3vh;
         text-align: center;
-
-        color: #000000;
     }
 
     #name_block {
-        position: absolute;
-        width: 232px;
-        height: 55px;
-        left: 44px;
-        top: 289px;
-
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2vh;
+        width: 70vw;
+        height: 7vh;
         background: #FDFAFA;
         border: 3px solid #DFDDDD;
         box-sizing: border-box;
         border-radius: 15px;
-
         text-align: center;
     }
 
     #major_block {
-        position: absolute;
-        width: 232px;
-        height: 55px;
-        left: 44px;
-        top: 349px;
-
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2vh;
+        width: 70vw;
+        height: 7vh;
         background: #FDFAFA;
         border: 3px solid #DFDDDD;
         box-sizing: border-box;
         border-radius: 15px;
-
         text-align: center;
     }
 
     #year_block {
-        position: absolute;
-        width: 232px;
-        height: 55px;
-        left: 44px;
-        top: 409px;
-
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2vh;
+        width: 70vw;
+        height: 7vh;
         background: #FDFAFA;
         border: 3px solid #DFDDDD;
         box-sizing: border-box;
         border-radius: 15px;
-
         text-align: center;
     }
 
-    #create {
-        position: absolute;
-        width: 132px;
-        height: 44px;
-        left: 94px;
-        top: 481px;
-        border-radius: 20px;
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 0px 2px #ffe35e;
+    }
 
+    #create {
+        width: 40vw;
+        height: 6vh;
+        font-weight: bolder;
+        font-size: 2vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3vh;
+        border-radius: 50px;
         background: #ffe35e;
         border-style: none;
-
         box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
     }
+
 </style>
 
 <body>
-    <img id="first">
+    <img id="first" src="image.png">
     <div id="text">Create a name!</div>
     <input id="name_block" placeholder="Name"></div>
     <input id="major_block" placeholder="Major"></div>

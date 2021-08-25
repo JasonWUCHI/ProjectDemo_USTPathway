@@ -5,132 +5,133 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <style>
-    #text {
-        position: absolute;
-        width: 278px;
-        height: 20px;
-        left: 18px;
-        top: 23px;
 
-        font-family: Poppins;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 20px;
-        /* identical to box height, or 167% */
-
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.2px;
-
-        color: #000000;
+    body {
+        font-family: Poppins;;
     }
 
-    #question {
-        position: absolute;
-        width: 296px;
-        height: 166px;
-        left: 12px;
-        top: 71px;
+    #text {
+        margin-left: 5vw;
+        margin-top: 5vh;
+        font-style: normal;
+    }
 
+    .progress {
+        border-radius: 50px;
+        margin-top: 1vh;
+        width: 92vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .question {
+        width: 92vw;
+        margin-top: 1vh;
+        margin-left: auto;
+        margin-right: auto;
+        height: 30vh;
+        font-weight: bolder;
         background: #F5F3F3;
         border: 3px solid #DFDDDD;
         box-sizing: border-box;
         border-radius: 15px;
+        display: table;
+    }
 
+    #question {
+        display: table-cell;
         text-align: center;
+        vertical-align: middle;
     }
 
     #choice1 {
-        position: absolute;
-        width: 296px;
-        height: 52px;
-        left: 12px;
-        top: 265px;
-
+        width: 92vw;
+        height: 7vh;
+        margin-top: 5vh;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-top: 15px;
+        font-weight: bolder;
         background: #F5F3F3;
         border: 1px solid #DFDDDD;
-        box-sizing: border-box;
         border-radius: 8px;
     }
 
-    #choice2{
-        position: absolute;
-        width: 296px;
-        height: 52px;
-        left: 12px;
-        top: 321px;
-
+    #choice2 {
+        width: 92vw;
+        height: 7vh;
+        margin-top: 2vh;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-top: 15px;
+        font-weight: bolder;
         background: #F5F3F3;
         border: 1px solid #DFDDDD;
-        box-sizing: border-box;
         border-radius: 8px;
     }
 
-    #choice3{
-        position: absolute;
-        width: 296px;
-        height: 52px;
-        left: 12px;
-        top: 377px;
-
+    #choice3 {
+        width: 92vw;
+        height: 7vh;
+        margin-top: 2vh;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-top: 15px;
+        font-weight: bolder;
         background: #F5F3F3;
         border: 1px solid #DFDDDD;
-        box-sizing: border-box;
         border-radius: 8px;
     }
 
-    #choice4{
-        position: absolute;
-        width: 296px;
-        height: 52px;
-        left: 12px;
-        top: 433px;
-
+    #choice4 {
+        width: 92vw;
+        height: 7vh;
+        margin-top: 2vh;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-top: 15px;
+        font-weight: bolder;
         background: #F5F3F3;
         border: 1px solid #DFDDDD;
-        box-sizing: border-box;
         border-radius: 8px;
-    }
-
-    .progress {
-        position: absolute;
-        width: 296px;
-        height: 17px;
-        left: 12px;
-        top: 42px;
     }
 
     #next {
-        position: absolute;
         width: 132px;
         height: 44px;
-        left: 94px;
-        top: 502px;
         border-radius: 8px;
-
         background: #ffe35e;
         border-style: none;
-
-        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-        
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);  
+        margin-top: 3vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
+
 </style>
 
 <body>
     <div id="text">Question 1</div>
     <div class="progress">
-        <div class="progress-bar" id="progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:10%">
-          <span class="sr-only">70% Complete</span>
-        </div>
+        <div class="progress-bar" id="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:10%; background-color: #024AAD; border-radius: 50px;"></div>
     </div>
-    <div id="question">How old is HKUST?</div>
+    <div class="question">
+        <div id="question"></div>
+    </div>
     <div id="choice1"></div>
     <div id="choice2"></div>
     <div id="choice3"></div>
