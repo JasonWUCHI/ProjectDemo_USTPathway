@@ -6,7 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #splash {
+        position: absolute;
+        width: 196px;
+        height: 210px;
+        left: 59px;
+        top: -15px;
+
+        background: url(.png);
+    }
+
+    #celebrate {
+        position: absolute;
+        width: 132.57px;
+        height: 128.29px;
+        left: 94px;
+        top: 142px;
+    }
+
+    #congrat {
+        position: absolute;
+        width: 226px;
+        height: 16px;
+        left: 45px;
+        top: 284px;
+
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 21px;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    #text {
+        position: absolute;
+        width: 226px;
+        height: 16px;
+        left: 45px;
+        top: 305px;
+
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+
+        color: #000000;
+    }
+
+    #final {
+        position: absolute;
+        width: 110px;
+        height: 27px;
+        left: 85px;
+        top: 334px;
+        border-radius: 50px;
+        z-index: 1;
+        background: #4ABF8E;
+        padding-top: 5px;
+        padding-left: 40px;
+    }
+
+    #score {
+        position: absolute;
+        width: 202px;
+        height: 30px;
+        left: 57px;
+        top: 350px;
+
+        text-align: center;
+        background: #FFE351;
+        border-radius: 8px;
+        padding-top: 20px;
+    }
+</style>
+
 <body>
+    <img src="" id="splash">
+    <img src="" id="cup">
+    <div id="congrat">Congratulations!</div>
+    <div id="text">You have successfully achieved:</div>
+    <div id="final">Final Score</div>
     <div id="score"></div>
     <script>
         document.getElementById("score").innerHTML = localStorage.getItem("score")
