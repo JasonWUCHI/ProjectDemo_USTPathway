@@ -4,97 +4,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <style>
-    #splash {
-        position: absolute;
-        width: 196px;
-        height: 210px;
-        left: 59px;
-        top: -15px;
 
-        background: url(.png);
+    body {
+        font-family: Poppins;
     }
 
-    #celebrate {
-        position: absolute;
-        width: 132.57px;
-        height: 128.29px;
-        left: 94px;
-        top: 142px;
+    #cup {
+        height: 90vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10vh;
     }
 
     #congrat {
-        position: absolute;
-        width: 226px;
-        height: 16px;
-        left: 45px;
-        top: 284px;
-
-        font-family: Poppins;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 21px;
+        font-size: 2vh;
+        font-weight: bolder;
+        margin-top: 2vh;
         text-align: center;
-
-        color: #000000;
     }
 
     #text {
-        position: absolute;
-        width: 226px;
-        height: 16px;
-        left: 45px;
-        top: 305px;
-
-        font-family: Poppins;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 12px;
-        line-height: 18px;
+        font-size: 1.8vh;
+        font-weight: lighter;
+        margin-top: 1vh;
         text-align: center;
+    }
 
-        color: #000000;
+    #container {
+        position: relative;
+        margin-left: 20%;
+        margin-top: 3vh;
     }
 
     #final {
         position: absolute;
-        width: 110px;
-        height: 27px;
-        left: 85px;
-        top: 334px;
+        z-index: 100;
+        margin-left: 10%;
+        width: 40vw;
+        text-align: center;
         border-radius: 50px;
         z-index: 1;
         background: #4ABF8E;
-        padding-top: 5px;
-        padding-left: 40px;
+        padding: 0.5vh;
+        font-weight: bolder;
+        font-size: 1.8vh;
     }
 
     #score {
         position: absolute;
-        width: 202px;
-        height: 30px;
-        left: 57px;
-        top: 350px;
-
+        top: 10px;
+        left: auto;
+        right: auto;
+        width: 50vw;
+        padding: 1.5vh;
+        padding-top: 3.5vh;
         text-align: center;
         background: #FFE351;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);  
         border-radius: 8px;
-        padding-top: 20px;
+        color: #024AAD;
+        font-weight: bolder;
+        font-size: 3vh;
     }
 </style>
 
 <body>
-    <img src="" id="splash">
-    <img src="" id="cup">
+    <img src="trophy.png" id="cup">
     <div id="congrat">Congratulations!</div>
     <div id="text">You have successfully achieved:</div>
-    <div id="final">Final Score</div>
-    <div id="score"></div>
+    <div id="container">
+        <div id="final">Final Score</div>
+        <div id="score"></div>
+    </div>
     <script>
-        document.getElementById("score").innerHTML = localStorage.getItem("score")
+        document.getElementById("score").innerHTML = localStorage.getItem("score") + '%';
     </script>
 </body>
 </html>

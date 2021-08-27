@@ -65,7 +65,7 @@ function nextquestion(){
             progress.setAttribute("style", "width:" + String(n+1) + "0%")
             progress.style.backgroundColor = '#024AAD';
             progress.style.borderRadius = '50px';
-            text.innerHTML = "Question" + String(n+1)
+            text.innerHTML = "Question" + ' ' + String(n+1)
             question.innerHTML = question_bank[n]
             choice1.innerHTML = choice_bank[n][0]
             choice2.innerHTML = choice_bank[n][1]
