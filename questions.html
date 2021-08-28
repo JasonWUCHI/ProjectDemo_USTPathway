@@ -18,9 +18,19 @@
     body {
         font-family: Poppins;;
     }
+    #container{
+        display: flex;
+        justify-content: space-between;
+    }
 
     #text {
         margin-left: 5vw;
+        margin-top: 5vh;
+        font-style: normal;
+    }
+
+    #timer {
+        margin-right: 5vw;
         margin-top: 5vh;
         font-style: normal;
     }
@@ -125,7 +135,10 @@
 </style>
 
 <body>
-    <div id="text">Question 1</div>
+    <div id=container>
+        <div id="text">Question 1</div>
+        <div id="timer">0:60</div>
+    </div>
     <div class="progress">
         <div class="progress-bar" id="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:10%; background-color: #024AAD; border-radius: 50px;"></div>
     </div>
