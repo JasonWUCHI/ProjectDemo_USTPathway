@@ -7,6 +7,8 @@ var progress = document.getElementById("progress");
 var next = document.getElementById("next");
 var text = document.getElementById("text");
 
+
+//Question Bank
 var question_bank = [
     "How many schools are there in HKUST?",
     "Where is the mosquito pool?",
@@ -37,6 +39,7 @@ var answer_bank = [
     "1" , "3" , "2" , "4","1" , "3" , "2" , "4","1" , "3"
 ]
 
+//question feature
 var n = 0;
 var score = 0;
 var answered = false;
@@ -47,6 +50,7 @@ window.onload = function(){
     choice2.innerHTML = choice_bank[0][1]
     choice3.innerHTML = choice_bank[0][2]
     choice4.innerHTML = choice_bank[0][3]
+    refreshTimer()
 }
 
 next.addEventListener("click", function(){nextquestion();});
@@ -92,3 +96,37 @@ function reply(choice){
         answered = true
     }
 }
+
+
+
+//timer 
+timer = document.getElementById('timer')
+second = 59
+min = 2
+var interval
+var have_time = true
+function refreshTimer(){
+    interval = setInterval(update, 1000);
+}
+
+function update(){
+    if(have_time == false){
+        localStorage.setItem("score" , score)
+        window.location.href = "result.html"
+    }
+    second = second-1
+    if(second<0){
+        min = min-1
+        second = 59
+    }
+    if(min>=0){
+        if(second<10){
+            timer.innerHTML = String(min)+':0'+String(second)
+        }else{
+            timer.innerHTML = String(min)+':'+String(second)
+        }
+    }else{
+        have_time = false
+    }
+}
+
