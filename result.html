@@ -84,7 +84,12 @@
         <div id="score"></div>
     </div>
     <script>
-        document.getElementById("score").innerHTML = localStorage.getItem("score") + '0%';
+        s = localStorage.getItem("score")
+        if(s==0){
+            document.getElementById("score").innerHTML = localStorage.getItem("score") + '%';
+        }else{
+            document.getElementById("score").innerHTML = localStorage.getItem("score") + '0%';
+        }
     </script>
 </body>
 </html>
