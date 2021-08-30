@@ -1,0 +1,135 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<style>
+
+    body {
+        font-family: Poppins;
+    }
+
+    #first {
+        height: 23vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 18vh;
+    }
+
+    #text {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3vh;
+        text-align: center;
+    }
+
+    #name_block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2vh;
+        width: 70vw;
+        height: 7vh;
+        background: #FDFAFA;
+        border: 3px solid #DFDDDD;
+        box-sizing: border-box;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    #major_block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2vh;
+        width: 70vw;
+        height: 7vh;
+        background: #FDFAFA;
+        border: 3px solid #DFDDDD;
+        box-sizing: border-box;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    #year_block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2vh;
+        width: 70vw;
+        height: 7vh;
+        background: #FDFAFA;
+        border: 3px solid #DFDDDD;
+        box-sizing: border-box;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 0px 2px #ffe35e;
+    }
+
+    #create {
+        width: 40vw;
+        height: 6vh;
+        font-weight: bolder;
+        font-size: 2vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3vh;
+        border-radius: 50px;
+        background: #ffe35e;
+        border-style: none;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+</style>
+
+<body>
+    <img id="first" src="/static/images/logo.png">
+    <div id="name_block"></div>
+    <div id="major_block"></div>
+    <div id="year_block"></div>
+
+    <script type="text/javascript">
+
+    // websockets
+
+    var url = window.location.href;
+        var socket = new WebSocket(
+            'wss://' + window.location.host + '/wss/draw/');
+
+        socket.onmessage = function(receivedMessage) {
+            var received = JSON.parse(receivedMessage.data);
+            console.log("Received: " + JSON.stringify(received));
+            if (url == 'http://127.0.0.1:8000/draw/big') {
+                var name = received.name;
+                var major = received.major;
+                var year = received.major;
+                document.getElementById('name_block').innerHTML = "name";
+                document.getElementById('major_block').innerHTML = "major";
+                document.getElementById('year_block').innerHTML = "year";
+            }   
+        }
+
+        socket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+
+
+    </script>
+</body>
+</html>

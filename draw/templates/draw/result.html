@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +78,7 @@
 </style>
 
 <body>
-    <img src="trophy.png" id="cup">
+    <img src="/static/images/trophy.png" id="cup">
     <div id="congrat">Congratulations!</div>
     <div id="text">You have successfully achieved:</div>
     <div id="container">
@@ -84,12 +86,7 @@
         <div id="score"></div>
     </div>
     <script>
-        s = localStorage.getItem("score")
-        if(s==0){
-            document.getElementById("score").innerHTML = localStorage.getItem("score") + '%';
-        }else{
-            document.getElementById("score").innerHTML = localStorage.getItem("score") + '0%';
-        }
+        document.getElementById("score").innerHTML = localStorage.getItem("score") + '%';
     </script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    
     <title>Document</title>
 </head>
 
@@ -21,7 +24,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 18vh;
+        margin-top: 10vh;
     }
 
     #text {
@@ -44,6 +47,7 @@
         box-sizing: border-box;
         border-radius: 15px;
         text-align: center;
+        font-size: 2vh;
     }
 
     #major_block {
@@ -58,6 +62,7 @@
         box-sizing: border-box;
         border-radius: 15px;
         text-align: center;
+        font-size: 2vh;
     }
 
     #year_block {
@@ -72,6 +77,7 @@
         box-sizing: border-box;
         border-radius: 15px;
         text-align: center;
+        font-size: 2vh;
     }
 
     input:focus {
@@ -97,13 +103,35 @@
 </style>
 
 <body>
-    <img id="first" src="image.png">
+    <img id="first" src="/static/images/logo.png">
     <div id="text">Create a name!</div>
-    <input id="name_block" placeholder="Name"></div>
-    <input id="major_block" placeholder="Major"></div>
-    <input id="year_block" placeholder="Year of study"></div>
-    <form action="questions.html">
+    <form id="form" action="../questions" onsubmit="myFunc()">
+        <input id="name_block" name="name" placeholder="Name"></div>
+        <input id="major_block" name="major" placeholder="Major"></div>
+        <input id="year_block" name="year" placeholder="Year of study"></div>
         <button id="create">Create</button>
     </form>
+
+    <script type="text/javascript">
+
+    // websockets
+    var url = window.location.href;
+    var socket = new WebSocket(
+        'wss://' + window.location.host + '/wss/draw/');
+    
+    function myFunc() {
+        var name = document.getElementById("form").elements[0].value;
+        var major = document.getElementById("form").elements[1].value;
+        var year = document.getElementById("form").elements[2].value;
+        socket.send("{\"name\" : " + name + ", \"major\" : " + major + ", \"year\" : " + year + "}");
+        console.log("sent");
+    }
+    
+    socket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly');
+    }
+
+    </script>
+
 </body>
 </html>
