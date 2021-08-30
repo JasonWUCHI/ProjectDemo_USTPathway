@@ -1,6 +1,6 @@
 # Exampal_USTPathway
 
-# How to run app
+# How to run the app
 1. (run) python3 manage.py migrate
 2. (run) python3 manage.py runserver 127.0.0.1:8000
 3. (link) http://127.0.0.1:8000/draw/registration
