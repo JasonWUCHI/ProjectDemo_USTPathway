@@ -1,5 +1,13 @@
 # Exampal_USTPathway
 
+# How to run app
+1. (run) python3 manage.py migrate
+2. (run) python3 manage.py runserver 127.0.0.1:8000
+3. (link) http://127.0.0.1:8000/draw/registration
+
+# How to run websockets
+To use websockets, run the redis server (https://phoenixnap.com/kb/install-redis-on-mac) in a separate terminal
+
 # UI
 https://www.figma.com/file/pIlvGHM5oWqTXQirTE5Vb1/ExamPal-Demo-draft?node-id=0%3A1
 
