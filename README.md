@@ -13,8 +13,8 @@ https://www.figma.com/file/pIlvGHM5oWqTXQirTE5Vb1/ExamPal-Demo-draft?node-id=0%3
 
 # The APP Journey
 1. After the challenger inputs his name, major and year of study, we want to be able to see it on our end so that we can approach them afterwards
-2. After the challenger selects an answer, we want the correct colors to be display (i.e. green for correct, red for wrong)
-3. After the challenger finishes the quiz, we want to display a list of ranking (Position, name, time used etc.)
+2. After the challenger selects an answer, we want the correct colors to be display (i.e. green for correct, red for wrong) (DONE)
+3. After the challenger finishes the quiz, we want to display a list of ranking (Position, name, time used etc.) 
 4. The final score (an accuracy percentage) should be displayed (DONE)
 5. Further, some more info graphics analysing their performance  by using charts, graphs etc. 
 
@@ -32,5 +32,5 @@ https://www.figma.com/file/pIlvGHM5oWqTXQirTE5Vb1/ExamPal-Demo-draft?node-id=0%3
 
 # The Plan
 1. Finish the core part (entering names, questions, displaying scores) by September (basically step 1 to 4)
-2. Finish step 5 before September 5th
+2. Finish step 5 before September 10th
 3. Testing
