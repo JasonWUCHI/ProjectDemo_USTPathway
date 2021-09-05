@@ -236,7 +236,7 @@
         choice2.addEventListener("click", function(){select(choice2.id);})
         choice3.addEventListener("click", function(){select(choice3.id);})
         choice4.addEventListener("click", function(){select(choice4.id);})
-        confirm_button.addEventListener("click", function(){reply(selected)})
+        confirm_button.addEventListener("click", function(){reply(selected);})
 
         function nextquestion(){
             if(answered){
@@ -259,16 +259,18 @@
                     choice3.style.background = "#F5F3F3"
                     choice4.style.background = "#F5F3F3"
                     answered = false;
+                    document.getElementById(selected).style.borderColor = "#DFDDDD"
+                    selected = null;
                 }
             }
         }
 
         function select(choice){
             if(!answered){
-                choice1.style.borderColor = "#000000"
-                choice2.style.borderColor = "#000000"
-                choice3.style.borderColor = "#000000"
-                choice4.style.borderColor = "#000000"
+                choice1.style.borderColor = "#DFDDDD"
+                choice2.style.borderColor = "#DFDDDD"
+                choice3.style.borderColor = "#DFDDDD"
+                choice4.style.borderColor = "#DFDDDD"
                 document.getElementById(choice).style.borderColor = "#5ECA7C"
                 selected = choice
             }
@@ -282,6 +284,7 @@
                 }else{
                     document.getElementById("choice" + String(answer_bank[n])).style.background = "#5ECA7C"
                     document.getElementById(choice).style.background = "#FF6666"
+                    document.getElementById(choice).style.borderColor = "#DFDDDD"
                 }
                 answered = true
             }
