@@ -20,7 +20,9 @@
     <body>
         
         <div id="container"></div>
+        <div id="wrong_question"></div>
         <script>
+            //chart
             anychart.onDocumentReady(function () {
 
                 // our data from bulbapedia
@@ -71,6 +73,40 @@
                 chart.draw();
 
             });
+            
+            //wrong question 
+            var qaw = localStorage.getItem("answered_wrong")
+            var wrong = localStorage.getItem("wrong_answer")
+            var wrong_answer = []
+            var question_answered_wrong = []
+            let k =0
+            for(let i=0 ; i<wrong.length ; i++){
+                if(wrong[i] == ','){
+                    wrong_answer.push(wrong.slice(k,i))
+                    k = i+1
+                }
+            }
+            wrong_answer.push(wrong.slice(k))
+
+            k = 0
+            for(let i=0 ; i<qaw.length ; i++){
+                if(qaw[i] == ','){
+                    question_answered_wrong.push(qaw.slice(k,i))
+                    k = i+1
+                }
+            }
+            question_answered_wrong.push(qaw.slice(k))
+
+            var wrong_question_sec = document.getElementById('wrong_question')
+            for(let i=0 ; i<wrong_answer.length ; i++){
+                var question_title = document.createElement('div')
+                var user_answer = document.createElement('div')
+                question_title.innerHTML = question_answered_wrong[i]
+                user_answer.innerHTML = wrong_answer[i]
+                wrong_question_sec.appendChild(question_title)
+                wrong_question_sec.appendChild(user_answer)
+            }
+            
         </script>
     </body>
 

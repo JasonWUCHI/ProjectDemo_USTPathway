@@ -92,6 +92,21 @@
         }else{
             document.getElementById("score").innerHTML = localStorage.getItem("score") + '0%';
         }
+
+        question_answered_wrong = localStorage.getItem("answered_wrong")
+        wrong = localStorage.getItem("wrong_answer")
+        var wrong_answer = []
+        let k =0
+        for(let i=0 ; i<wrong.length ; i++){
+            if(wrong[i] == ','){
+                wrong_answer.push(wrong.slice(k,i))
+                k = i+1
+            }
+        }
+        wrong_answer.push(wrong.slice(k))
+        
+        
+        
         
     </script>
 </body>

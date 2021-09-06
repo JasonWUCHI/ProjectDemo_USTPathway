@@ -183,7 +183,8 @@
         var next = document.getElementById("next");
         var text = document.getElementById("text");
         var confirm_button = document.getElementById("confirm");
-
+        var question_answered_wrong = []
+        var wrong_answer = []
 
         //Question Bank
         var question_bank = [
@@ -243,6 +244,8 @@
                 n = n+1;
                 if(n == 10){
                     localStorage.setItem("score" , score)
+                    localStorage.setItem("answered_wrong", question_answered_wrong)
+                    localStorage.setItem("wrong_answer", wrong_answer)
                     window.location.href = "result.html"
                 }else{
                     progress.setAttribute("style", "width:" + String(n+1) + "0%")
@@ -285,6 +288,8 @@
                     document.getElementById("choice" + String(answer_bank[n])).style.background = "#5ECA7C"
                     document.getElementById(choice).style.background = "#FF6666"
                     document.getElementById(choice).style.borderColor = "#DFDDDD"
+                    question_answered_wrong.push(n)
+                    wrong_answer.push(choice)
                 }
                 answered = true
             }
@@ -303,6 +308,13 @@
         function update(){
             if(have_time == false){
                 localStorage.setItem("score" , score)
+                while(n<10){
+                    question_answered_wrong.push(n)
+                    wrong_answer.push("no answer")
+                    n = n+1
+                }
+                localStorage.setItem("answered_wrong", question_answered_wrong)
+                localStorage.setItem("wrong_answer", wrong_answer)
                 window.location.href = "result.html"
             }
             second = second-1
