@@ -20,7 +20,7 @@
     }
 
     #first {
-        height: 23vh;
+        height: 10vh;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -103,7 +103,7 @@
 </style>
 
 <body>
-    <img id="first" src="/static/images/logo.png">
+    <img id="first" src="/static/images/exampal.png">
     <div id="text">Create a name!</div>
     <form id="form" action="../questions" onsubmit="myFunc()">
         <input id="name_block" name="name" placeholder="Name"></div>
@@ -120,15 +120,16 @@
         'wss://' + window.location.host + '/wss/draw/');
     
     function myFunc() {
-        var name = document.getElementById("form").elements[0].value;
-        var major = document.getElementById("form").elements[1].value;
-        var year = document.getElementById("form").elements[2].value;
         socket.send("{\"name\" : " + name + ", \"major\" : " + major + ", \"year\" : " + year + "}");
         console.log("sent");
     }
     
     socket.onclose = function(e) {
         console.error('Chat socket closed unexpectedly');
+    }
+
+    socket.onmessage = function(receivedMessage) {
+        console.log("received")
     }
 
     </script>

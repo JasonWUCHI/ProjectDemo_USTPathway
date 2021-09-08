@@ -13,6 +13,12 @@ def registration(request):
 def result(request):
     return render(request, 'draw/result.html')
 
+def new_result(request):
+    return render(request, 'draw/new_result.html')
+
+def join(request):
+    return render(request, 'draw/join.html')
+
 def big(request):
     return render(request, 'draw/big.html')
 
