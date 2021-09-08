@@ -2,6 +2,7 @@
     <head>
         <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
         <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-radar.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     </head>
     <style type="text/css">
         html, body {
@@ -9,7 +10,55 @@
             height: 100%;
             margin: 0;
             padding: 0;
+            font-family: Poppins
         }
+        
+        #title_1{
+            font-family: Poppins;
+            font-size: 2.5vh;
+            font-weight: bold;
+            margin-top: 6vh;
+            margin-bottom: 2vh;
+            text-align: center;
+        }
+
+        #title_2{
+            font-family: Poppins;
+            font-size: 2.5vh;
+            font-weight: bold;
+            margin-top: 1vh;
+            margin-bottom: 2vh;
+            text-align: center;
+        }
+
+        .question_title{
+            background: #F5F3F3;
+            border: 3px solid #DFDDDD;
+            box-sizing: border-box;
+            border-radius: 15px;
+            height: 8vh;
+            margin-right: 2vh;
+            margin-left: 2vh;
+            margin-bottom: 3vh;
+            font-size: 2vh;
+            text-align: center;
+            padding-top: 1.5vh;
+        }
+
+        .choices{
+            background: #F5F3F3;
+            border: 3px solid #DFDDDD;
+            box-sizing: border-box;
+            border-radius: 15px;
+            height: 4vh;
+            margin-right: 2vh;
+            margin-left: 2vh;
+            margin-bottom: 0.8vh;
+            font-size: 2vh;
+            text-align: center;
+            padding-top: 0.5vh;
+        }
+
         #container{
             width: 100%;
             height: 50%;
@@ -18,24 +67,27 @@
         }
     </style>
     <body>
-        
+        <div id="title_1">Your results analysis</div>
         <div id="container"></div>
-        <div id="wrong_question"></div>
+        <div id="title_2">Wrong Questions</div>
+        <div id="wrong_question">
+
+        </div>
         <script>
             //chart
             anychart.onDocumentReady(function () {
 
                 // our data from bulbapedia
                 var data1 = [
-                    {x: "HP", value: 39},
-                    {x: "Attack", value: 52},
-                    {x: "Defense", value: 43},
+                    {x: "HALL", value: 10},
+                    {x: "UST", value: 20},
+                    {x: "MATH", value: 10},
                 ];
 
                 var data2 = [
-                    {x: "HP", value: 45},
-                    {x: "Attack", value: 49},
-                    {x: "Defense", value: 49},
+                    {x: "HALL", value: 10},
+                    {x: "UST", value: 30},
+                    {x: "MATH", value: 20},
                 ];  
 
                 // create radar chart
@@ -45,17 +97,17 @@
                 chart.title().fontSize(70)
                 chart.legend().fontSize(30)
                 chart.yAxis().labels().fontSize(20)
-                chart.xAxis().labels().fontSize(30)
+                chart.xAxis().labels().fontSize(40)
                 // set chart yScale settings
                 chart.yScale()
-                .minimum(35)
-                .maximum(65)
+                .minimum(0)
+                .maximum(30)
                 .ticks({'interval':5});
 
                 // create first series
-                chart.area(data1).name('Charmander').markers(true).fill("#E55934", 0.3).stroke("#E55934")
+                chart.area(data1).name('Your Score').markers(true).fill("#E55934", 0.8).stroke("#E55934")
                 // create second series
-                chart.area(data2).name('Bulbasaur').markers(true).fill("#9BC53D", 0.3).stroke("#9BC53D")
+                chart.area(data2).name('Average Score').markers(true).fill("#9BC53D", 0.3).stroke("#9BC53D")
                        
                 // set chart title
                 // chart.title("Performance by Categories")
@@ -79,6 +131,38 @@
             var wrong = localStorage.getItem("wrong_answer")
             var wrong_answer = []
             var question_answered_wrong = []
+            var question_bank = [
+                "How many schools are there in HKUST?",
+                "Where is the mosquito pool?",
+                "What is the consequence if you cannot jump over smart stone?",
+                "Who is the president of HKUST?",
+                "How many halls are there in HKUST?",
+                "How many Hlth 1010 hours you need to satisfy its requirement?",
+                "Which floor does not exist in HKUST?",
+                "What is the ranking of HKUST in the World's Top 50 Young Universities Under 50 2021 QS World University Ranking?",
+                "Which halls have sink?",
+                "Which of the following is the correct official website of HKUST?"
+            ]
+            var choice_bank = [
+                ["1" , "2" , "3" , "4"],
+                ["1" , "2" , "3" , "4"],
+                ["1" , "2" , "3" , "4"],
+                ["1" , "2" , "3" , "4"],
+                ["1" , "2" , "3" , "4"],
+                ["1" , "2" , "3" , "4"],
+                ["1" , "2" , "3" , "4"],
+                ["1" , "2" , "3" , "4"],
+                ["1" , "2" , "3" , "4"],
+                ["1" , "2" , "3" , "4"],
+            ] 
+
+            var answer_bank = [
+                "1" , "3" , "2" , "4","1" , "3" , "2" , "4","1" , "3"
+            ]
+
+
+
+
             let k =0
             for(let i=0 ; i<wrong.length ; i++){
                 if(wrong[i] == ','){
@@ -100,13 +184,28 @@
             var wrong_question_sec = document.getElementById('wrong_question')
             for(let i=0 ; i<wrong_answer.length ; i++){
                 var question_title = document.createElement('div')
-                var user_answer = document.createElement('div')
-                question_title.innerHTML = question_answered_wrong[i]
-                user_answer.innerHTML = wrong_answer[i]
+                question_title.setAttribute("class", "question_title")
+                question_title.innerHTML = question_bank[question_answered_wrong[i]]
                 wrong_question_sec.appendChild(question_title)
-                wrong_question_sec.appendChild(user_answer)
+
+                for(let j=0; j<4 ; j++){
+                    var choice = document.createElement('div')
+                    choice.setAttribute("class", "choices")
+                    choice.innerHTML = choice_bank[question_answered_wrong[i]][j]
+
+                    if("choice"+String(j+1) == wrong_answer[i]){
+                        choice.style.color = "#FF6666"
+                    }
+
+                    if(j+1 == answer_bank[i]){
+                        choice.style.color = "#5ECA7C"
+                    }
+
+                    wrong_question_sec.appendChild(choice)
+                    
+                }
             }
-            
+
         </script>
     </body>
 
