@@ -126,7 +126,7 @@
     }
 
     #next {
-        width: 132px;
+        width: 115px;
         height: 44px;
         border-radius: 8px;
         background: #ffe35e;
@@ -139,7 +139,7 @@
     }
 
     #confirm {
-        width: 132px;
+        width: 115px;
         height: 44px;
         border-radius: 8px;
         background: #ffe35e;
@@ -246,7 +246,7 @@
                     localStorage.setItem("score" , score)
                     localStorage.setItem("answered_wrong", question_answered_wrong)
                     localStorage.setItem("wrong_answer", wrong_answer)
-                    window.location.href = "result.html"
+                    window.location.href = "../result"
                 }else{
                     progress.setAttribute("style", "width:" + String(n+1) + "0%")
                     progress.style.backgroundColor = '#024AAD';
@@ -315,7 +315,7 @@
                 }
                 localStorage.setItem("answered_wrong", question_answered_wrong)
                 localStorage.setItem("wrong_answer", wrong_answer)
-                window.location.href = "result.html"
+                window.location.href = "../result"
             }
             second = second-1
             if(second<0){

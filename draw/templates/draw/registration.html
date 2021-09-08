@@ -120,7 +120,8 @@
         'wss://' + window.location.host + '/wss/draw/');
     
     function myFunc() {
-        socket.send("{\"name\" : " + name + ", \"major\" : " + major + ", \"year\" : " + year + "}");
+        const name = id => document.getElementById("name_block").value;
+        socket.send("{\"name\" : " + name + "}");
         console.log("sent");
     }
     

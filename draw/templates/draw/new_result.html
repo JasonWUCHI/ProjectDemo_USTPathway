@@ -12,9 +12,9 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            font-family: Poppins
+            font-family: Poppins;
         }
-        
+
         #title_1{
             font-family: Poppins;
             font-size: 2.5vh;
@@ -34,16 +34,16 @@
         }
 
         .question_title{
+            text-align: center;
             background: #F5F3F3;
-            border: 3px solid #DFDDDD;
+            border: 10px solid #DFDDDD;
             box-sizing: border-box;
-            border-radius: 15px;
-            height: 8vh;
+            border-radius: 25px;
+            height: 12vh;
             margin-right: 2vh;
             margin-left: 2vh;
-            margin-bottom: 3vh;
+            margin-bottom: 2vh;
             font-size: 2vh;
-            text-align: center;
             padding-top: 1.5vh;
         }
 
@@ -51,7 +51,7 @@
             background: #F5F3F3;
             border: 3px solid #DFDDDD;
             box-sizing: border-box;
-            border-radius: 15px;
+            border-radius: 25px;
             height: 4vh;
             margin-right: 2vh;
             margin-left: 2vh;
@@ -67,13 +67,35 @@
             margin: 0;
             padding: 0;
         }
+
+        #next {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3vh;
+            width: 30vw;
+            height: 12vw;
+            border-radius: 20px;
+            background: #ffe35e;
+            border-style: none;
+            box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);  
+            font-size: 2vh;
+        }
+
+        #space {
+            position: absolute;
+            margin-top: 380vh;
+            color: white;
+        }
+
     </style>
     <body>
         <div id="title_1">Your results analysis</div>
         <div id="container"></div>
         <div id="title_2">Wrong Questions</div>
         <div id="wrong_question">
-
+        <button onclick="window.open('../join')" id="next">Next</button>
+        <div id="space">space</div>
         </div>
         <script>
             //chart
@@ -163,8 +185,6 @@
             ]
 
 
-
-
             let k =0
             for(let i=0 ; i<wrong.length ; i++){
                 if(wrong[i] == ','){
@@ -187,6 +207,7 @@
             for(let i=0 ; i<wrong_answer.length ; i++){
                 var question_title = document.createElement('div')
                 question_title.setAttribute("class", "question_title")
+                question_title.style.marginTop = '5vh'
                 question_title.innerHTML = question_bank[question_answered_wrong[i]]
                 wrong_question_sec.appendChild(question_title)
 
@@ -196,14 +217,18 @@
                     choice.innerHTML = choice_bank[question_answered_wrong[i]][j]
 
                     if("choice"+String(j+1) == wrong_answer[i]){
-                        choice.style.color = "#FF6666"
+                        choice.style.backgroundColor = "#FF6666"
                     }
 
                     if(j+1 == answer_bank[i]){
-                        choice.style.color = "#5ECA7C"
+                        choice.style.backgroundColor = "#5ECA7C"
                     }
 
                     wrong_question_sec.appendChild(choice)
+                    var next = document.getElementById("next")
+                    if (i == wrong_answer.length - 1) {
+                        wrong_question_sec.appendChild(next);
+                    }
                     
                 }
             }
