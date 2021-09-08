@@ -120,15 +120,16 @@
         'wss://' + window.location.host + '/wss/draw/');
     
     function myFunc() {
-        var name = document.getElementById("form").elements[0].value;
-        var major = document.getElementById("form").elements[1].value;
-        var year = document.getElementById("form").elements[2].value;
         socket.send("{\"name\" : " + name + ", \"major\" : " + major + ", \"year\" : " + year + "}");
         console.log("sent");
     }
     
     socket.onclose = function(e) {
         console.error('Chat socket closed unexpectedly');
+    }
+
+    socket.onmessage = function(receivedMessage) {
+        console.log("received")
     }
 
     </script>
