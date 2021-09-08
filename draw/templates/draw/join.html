@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+
+    body {
+        font-family: Poppins;
+        font-weight: bolder;
+    }
+
+    #logo {
+        height: 10vh;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10vh;
+    }
+
+    #join {
+        width: 90vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2vh;
+    }
+
+    #follow {
+        width: 30vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5vh;
+    }
+
+    #work{
+        width: 90vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10vh;
+    }
+
+    #text {
+        text-align: center;
+        font-weight: lighter;
+        font-size: 3.5vw;
+        margin: 2vw;
+        margin-top: 3vh;
+    }
+
+    .sm {
+        height: 5vh;
+    }
+
+    .sn {
+        margin-top: 1vh;
+        margin-left: 2vw;
+        font-weight: lighter;
+        font-size: 3.5vw;
+    }
+
+    #row {
+        margin-top: 5vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .group1 {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .group2 {
+        margin-left: 13vw;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #hkstp {
+        width: 50vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1vh;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+</style>
+
+<body>
+    <img src="/static/images/exampal.png" id="logo">
+    <img src="/static/images/join.png" id="join">
+    <img src="/static/images/follow.png" id="follow">
+    <div id="row">
+        <a href="https://www.instagram.com/exampal_hk/">
+            <div class="group1">
+                <img src="/static/images/ig.png" class="sm">
+                <p class="sn">exampal_hk</p>
+            </div>
+        </a>
+        <a href="https://www.linkedin.com/company/exampalltd/about/">
+            <div class="group2">
+                <img src="/static/images/linkedin.png" class="sm">
+                <p class="sn">ExamPal</p>
+            </div>
+        </a>
+    </div>
+    <img src="/static/images/work.png" id="work">
+    <p id="text">A one-stop platform for personalised, convenient and effective revision.</p>
+    <img src="/static/images/grp.png" id="hkstp">
+    
+    <script>  
+    </script>
+</body>
+</html>
