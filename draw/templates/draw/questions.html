@@ -72,7 +72,7 @@
         margin-left: auto;
         margin-right: auto;
         padding-left: 10px;
-        padding-top: 15px;
+        padding-top: 10px;
         font-weight: bolder;
         background: #F5F3F3;
         border: 1px solid #DFDDDD;
@@ -86,7 +86,7 @@
         margin-left: auto;
         margin-right: auto;
         padding-left: 10px;
-        padding-top: 15px;
+        padding-top: 10px;
         font-weight: bolder;
         background: #F5F3F3;
         border: 1px solid #DFDDDD;
@@ -100,7 +100,7 @@
         margin-left: auto;
         margin-right: auto;
         padding-left: 10px;
-        padding-top: 15px;
+        padding-top: 10px;
         font-weight: bolder;
         background: #F5F3F3;
         border: 1px solid #DFDDDD;
@@ -114,7 +114,7 @@
         margin-left: auto;
         margin-right: auto;
         padding-left: 10px;
-        padding-top: 15px;
+        padding-top: 10px;
         font-weight: bolder;
         background: #F5F3F3;
         border: 1px solid #DFDDDD;
@@ -191,30 +191,30 @@
             "How many schools are there in HKUST?",
             "Where is the mosquito pool?",
             "What is the consequence if you cannot jump over smart stone?",
-            "Who is the president of HKUST?",
+            "Which hall is Sea Front Restaurant next to?",
             "How many halls are there in HKUST?",
-            "How many Hlth 1010 hours you need to satisfy its requirement?",
+            "What is 35% of 700?",
             "Which floor does not exist in HKUST?",
             "What is the ranking of HKUST in the World's Top 50 Young Universities Under 50 2021 QS World University Ranking?",
-            "Which halls have sink?",
-            "Which of the following is the correct official website of HKUST?"
+            "What is 5+5*5?",
+            "Which of the following are benefits of using ExamPal?"
         ]
 
         var choice_bank = [
-            ["1" , "2" , "3" , "4"],
-            ["1" , "2" , "3" , "4"],
-            ["1" , "2" , "3" , "4"],
-            ["1" , "2" , "3" , "4"],
-            ["1" , "2" , "3" , "4"],
-            ["1" , "2" , "3" , "4"],
-            ["1" , "2" , "3" , "4"],
-            ["1" , "2" , "3" , "4"],
-            ["1" , "2" , "3" , "4"],
-            ["1" , "2" , "3" , "4"],
+            ["3" , "4" , "5" , "6"],
+            ["Hall 4" , "Hall 1" , "Hall 5" , "Hall 7"],
+            ["Your CGA will not be over 3" , "You can't get a girlfriend/boyfriend" , "You will face many free riders in group projects" , "Nothing will happen"],
+            ["Hall 6" , "Hall 7" , "Hall 8" , "Hall 3"],
+            ["8" , "9" , "10" , "11"],
+            ["300" , "245" , "275" , "225"],
+            ["LG4" , "LG5" , "LG6" , "LG7"],
+            ["1" , "2" , "3" , "10"],
+            ["50" , "25" , "30" , "15"],
+            ["Convenient (study anywhere with just a phone)" , "Personalised (showing questions that the AI predicts you will find difficult" , "Effective learning (won't waste time drilling questions you already know)" , "All of the above and more"],
         ]
 
         var answer_bank = [
-            "1" , "3" , "2" , "4","1" , "3" , "2" , "4","1" , "3"
+            "2" , "1" , "1" , "1", "2" , "2" , "3" , "2", "3" , "4"
         ]
 
         //question feature
@@ -274,6 +274,7 @@
                 choice2.style.borderColor = "#DFDDDD"
                 choice3.style.borderColor = "#DFDDDD"
                 choice4.style.borderColor = "#DFDDDD"
+                document.getElementById(choice).style.borderWidth = "5px"
                 document.getElementById(choice).style.borderColor = "#5ECA7C"
                 selected = choice
             }
@@ -291,6 +292,7 @@
                     question_answered_wrong.push(n)
                     wrong_answer.push(choice)
                 }
+                document.getElementById(choice).style.borderWidth = "1px"
                 answered = true
             }
         }
@@ -332,7 +334,6 @@
                 have_time = false
             }
         }
-
 
     </script>
 </body>
