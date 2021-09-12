@@ -96,15 +96,15 @@
 
                 // our data from bulbapedia
                 var data1 = [
-                    {x: "HALL", value: 10},
-                    {x: "UST", value: 20},
-                    {x: "MATH", value: 10},
+                    {x: "HALL", value: localStorage.getItem("hall_score")},
+                    {x: "UST", value: localStorage.getItem("ust_score")},
+                    {x: "MATH", value: localStorage.getItem("math_score")},
                 ];
 
                 var data2 = [
-                    {x: "HALL", value: 10},
-                    {x: "UST", value: 30},
-                    {x: "MATH", value: 20},
+                    {x: "HALL", value: 1},
+                    {x: "UST", value: 3},
+                    {x: "MATH", value: 2},
                 ];  
 
                 // create radar chart
@@ -118,8 +118,8 @@
                 // set chart yScale settings
                 chart.yScale()
                 .minimum(0)
-                .maximum(30)
-                .ticks({'interval':5});
+                .maximum(3)
+                .ticks({'interval':1});
 
                 // create first series
                 chart.area(data1).name('Your Score').markers(true).fill("#E55934", 0.8).stroke("#E55934")
