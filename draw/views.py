@@ -19,8 +19,5 @@ def new_result(request):
 def join(request):
     return render(request, 'draw/join.html')
 
-def big(request):
-    return render(request, 'draw/big.html')
-
 
 
