@@ -99,7 +99,6 @@
 </style>
 
 <body>
-    <img id="first" src="/static/images/logo.png">
     <div id="name_block"></div>
     <div id="major_block"></div>
     <div id="year_block"></div>
@@ -113,21 +112,10 @@
             'wss://' + window.location.host + '/wss/draw/');
 
         socket.onmessage = function(receivedMessage) {
-            var received = JSON.parse(receivedMessage.data);
-            console.log("Received: " + JSON.stringify(received));
-            if (url == 'http://127.0.0.1:8000/draw/big') {
-                var name = received.name;
-                var major = received.major;
-                var year = received.major;
-                document.getElementById('name_block').innerHTML = "name";
-                document.getElementById('major_block').innerHTML = "major";
-                document.getElementById('year_block').innerHTML = "year";
-            }   
-        }
-
-        socket.onclose = function(e) {
-            console.error('Chat socket closed unexpectedly');
-        };
+        var data = JSON.parse(receivedMessage.data);
+          console.log(data);
+          document.write(data);
+      };
 
 
     </script>

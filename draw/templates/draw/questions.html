@@ -50,7 +50,7 @@
         margin-top: 1vh;
         margin-left: auto;
         margin-right: auto;
-        height: 30vh;
+        height: 25vh;
         font-weight: bolder;
         background: #F5F3F3;
         border: 3px solid #DFDDDD;
@@ -68,7 +68,7 @@
     #choice1 {
         width: 92vw;
         height: 7vh;
-        margin-top: 5vh;
+        margin-top: 3vh;
         margin-left: auto;
         margin-right: auto;
         padding-left: 10px;
@@ -133,7 +133,7 @@
         border-style: none;
         box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);  
         margin-top: 3vh;
-        display: block;
+        display: none;
         margin-left: auto;
         margin-right: auto;
     }
@@ -190,13 +190,13 @@
         var question_bank = [
             "How many schools are there in HKUST?",
             "Where is the mosquito pool?",
-            "What is the consequence if you cannot jump over smart stone?",
+            "What is the consequence if you cannot jump over wisdom stone?",
             "Which hall is Sea Front Restaurant next to?",
-            "How many halls are there in HKUST?",
+            "How many halls are there inside HKUST?",
             "What is 35% of 700?",
             "Which floor does not exist in HKUST?",
             "What is the ranking of HKUST in the World's Top 50 Young Universities Under 50 2021 QS World University Ranking?",
-            "What is 5+5*5?",
+            "What is 5+5×5?",
             "Which of the following are benefits of using ExamPal?"
         ]
 
@@ -210,7 +210,7 @@
             ["LG4" , "LG5" , "LG6" , "LG7"],
             ["1" , "2" , "3" , "10"],
             ["50" , "25" , "30" , "15"],
-            ["Convenient (study anywhere with just a phone)" , "Personalised (showing questions that the AI predicts you will find difficult" , "Effective learning (won't waste time drilling questions you already know)" , "All of the above and more"],
+            ["Convenient (study anywhere with just a phone)" , "Personalised (showing questions that the AI predicts you will find difficult)" , "Effective learning (won't waste time drilling questions you already know)" , "All of the above and more"],
         ]
 
         var answer_bank = [
@@ -266,6 +266,8 @@
                     selected = null;
                 }
             }
+            confirm_button.style.display = "block"
+            next.style.display = "none"
         }
 
         function select(choice){
@@ -275,7 +277,7 @@
                 choice3.style.borderColor = "#DFDDDD"
                 choice4.style.borderColor = "#DFDDDD"
                 document.getElementById(choice).style.borderWidth = "5px"
-                document.getElementById(choice).style.borderColor = "#5ECA7C"
+                document.getElementById(choice).style.borderColor = "#ff8b00"
                 selected = choice
             }
         }
@@ -285,6 +287,7 @@
                 if(choice == "choice"+answer_bank[n]){
                     score = score + 1;
                     document.getElementById("choice" + String(answer_bank[n])).style.background = "#5ECA7C"
+                    document.getElementById("choice" + String(answer_bank[n])).style.borderColor = "#5ECA7C"
                 }else{
                     document.getElementById("choice" + String(answer_bank[n])).style.background = "#5ECA7C"
                     document.getElementById(choice).style.background = "#FF6666"
@@ -292,6 +295,8 @@
                     question_answered_wrong.push(n)
                     wrong_answer.push(choice)
                 }
+                confirm_button.style.display = "none"
+                next.style.display = "block"
                 document.getElementById(choice).style.borderWidth = "1px"
                 answered = true
             }
