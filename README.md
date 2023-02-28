@@ -1,4 +1,4 @@
-# Exampal_USTPathway
+# ProjectDemo_USTPathway
 
 # How to run the app
 1. (run) python3 manage.py migrate
